@@ -1,7 +1,13 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap'); */
  @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2&family=Poppins:wght@400;500;700&display=swap');
-
-
+ :root{
+ --color-primary: #5ec576;
+  --color-secondary: #ffcb03;
+  --color-tertiary: #ff585f;
+  --color-primary-darker: #4bbb7d;
+  --color-secondary-darker: #ffbb00;
+  --color-tertiary-darker: #fd424b;
+ }
 *{
  margin: 0;
  padding: 0;
@@ -10,6 +16,7 @@
 body {
 font-size: 6.25%;
 font-family: 'Roboto', sans-serif;
+background-color: var(--color-tertiary-darker);
 }
 
 nav ul {
@@ -17,22 +24,39 @@ list-style: none;
 font-size: 2rem;
 }
 nav {
- background-color: #000;
  color: #fff;
  padding: 0 1.2rem;
  height: 7.6rem;
  display: flex;
  align-items: center;
+ position: relative;
 }
-
+.img-nav img {
+  height: 20rem;
+  width: 30rem;
+  position: absolute;
+  top: 0%;
+  left: 30%;
+  transform: translate(0rem, -4rem);
+}
 .game-info h1 {
- font-size: 1.2rem;
+ font-size: 2.2rem;
+}
+.info {
+  font-size: 1.6rem;
+  font-family: 'Baloo Bhaina 2', cursive;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.game-info {
+ padding: 0 3.4rem; 
+ font-family: 'Baloo Bhaina 2', cursive;   
 }
 .game-container {
- /* background-color: yellow; */
  display: flex;
  justify-content: center;
  margin-top: 5rem;
+ margin-bottom: 3rem;
 }
 
 .container {
@@ -41,27 +65,45 @@ nav {
  grid-template-rows: repeat(3, 10vw);
  font-family: 'Roboto', sans-serif;
  padding: 1rem;
+ position: relative;
 }
 
 .box {
-border: 2px solid #000;
+border: 0.4rem solid var(--color-secondary-darker);
 font-size: 8vw;
 display: flex;
 justify-content: center;
 transition: all 0.2;
 }
 .box:hover {
- background-color:rgba(199, 199, 252, 0.809);
+ background-color:var(--color-tertiary);
 }
-.game-info {
- padding: 0 3.4rem; 
- font-family: 'Baloo Bhaina 2', cursive;   
+.box-text {
+  color: var(--color-secondary-darker);
+  font-family: 'Baloo Bhaina 2', cursive;
+  display: flex;
+  align-items: center;   
+
 }
 
-.img-box {
- display: none;
+.img-box img{
+  width: 0;
+  transition: 1s ease-in-out;
 }
-
+.btn-reset {
+ background-color:var(--color-secondary);  
+ color: #fff;
+ padding: 0.4rem 2.6rem;
+ border-radius: 0.6rem;
+ font-size: 1.4rem;
+ cursor: pointer;
+ margin-left: 2rem;
+ border: 0;
+box-shadow: 0px 1px 5px 1px rgba(31, 30, 30, 0.5);
+}
+.btn-reset:hover {
+  background-color: var(--color-secondary-darker);
+}
 .bt-0 {
  border-top: 0;
 }
@@ -74,3 +116,38 @@ transition: all 0.2;
 .br-0 {
  border-right: 0;
 }
+.line {
+  background-color: #000;
+  width: 0;
+  height: 0.3rem;
+  transition: width 1s ease-in-out;
+  color:var(--color-secondary-darker) ;
+  position: absolute;
+}
+ /* Media for Responsive */
+@media screen and (max-width: 800px) {
+   .game-container {
+    flex-wrap: wrap;
+   }
+   .container {
+     grid-template-columns: repeat(3, 20vw);
+     grid-template-rows: repeat(3, 20vw); 
+   }
+   .game-info h1 {
+    font-size: 1.4rem;
+    margin-top: 3.6rem;
+   }
+  .btn-reset {
+    margin: 0 2.4rem;
+    font-size: 1.2rem;
+ }
+ .box {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ }
+ .img-nav img {
+    transform: translate(-6rem, -4rem);
+ }
+
+};
