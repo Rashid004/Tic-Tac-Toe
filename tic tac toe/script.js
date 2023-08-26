@@ -26,12 +26,13 @@ let isGameover = false;
 
     [0,3,6 ,-4.2,15,90],
     [1,4,7 ,6,15,90],
-    [2,5,8 ,15,16,90],
+    [2,5,8 ,16,16,90],
 
     [0,4,8 ,5,14.8,45],
     [2,4,6 ,6.5,15,135],
   ]
-  music.play();
+   
+  // music.play();
   wins.forEach(e => {
     if((boxtext[e[0]].innerText === boxtext[e[1]].innerText) &&
      (boxtext[e[2]].innerText === boxtext[e[1]].innerText) && (boxtext[e[0]]. innerText !== '')) {
@@ -63,7 +64,7 @@ const renderGame = function() {
          document.getElementsByClassName("info")[0].innerText = "Turn for player " + turn;
          }
        }
-     })
+     });
    });  
 };
 renderGame();
@@ -78,12 +79,9 @@ reset.addEventListener('click', () => {
    turn = 'X';
       isGameover = false
       document.getElementsByClassName("info")[0].innerText = "Turn for Player " + turn;
-      document.querySelector(".img-box")
-      .getElementsByTagName("img")[0].style.width = "0rem";
-
+      document.querySelector(".img-box").getElementsByTagName("img")[0].style.width = "0rem";
       document.querySelector(".line").style.width = "0";
-
-
+      gameOver.pause();   
  });
 };
 resetGame();
